@@ -14,6 +14,7 @@ const fName = "Christopher";
 const lName = "Baldoza";
 
 const copyRightYear = new Date().getFullYear();
+console.log(copyRightYear);
 
 ReactDOM.render(
   <div>
