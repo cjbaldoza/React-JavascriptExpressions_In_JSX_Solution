@@ -3,27 +3,37 @@ import ReactDOM from "react-dom";
 
 const dynamicImg = "https://picsum.photos/200";
 
-var greeting = "Good morning";
+let greeting = "Good morning";
 
 const fName = "Christopher";
 const lName = "Baldoza";
 
 const customStyle = {
-  color: "red",
-  fontSize: "20px",
-  border: "1px solid black"
+  color: ""
 };
 
+//const currentDate = new Date(2021, 1, 1, 11);
 const currentDate = new Date();
-const hours = currentDate.getHours();
-if (12 <= hours < 18) {
-  greeting = "Good Afternoon";
-  customStyle.color = "green";
-} else if (18 <= hours < 0) {
-  greeting = "Good Evening";
-  customStyle.color = "blue";
-} else if (0 <= hours <= 12) {
+const currentTime = currentDate.getHours();
+// if (12 <= currentTime < 18) {
+//   greeting = "Good Afternoon";
+//   customStyle.color = "green";
+// } else if (18 <= currentTime < 0) {
+//   greeting = "Good Evening";
+//   customStyle.color = "blue";
+// } else if (0 <= currentTime <= 12) {
+//   greeting = "Good Morning";
+//   customStyle.color = "red";
+// }
+
+if (currentTime < 12) {
   greeting = "Good Morning";
+  customStyle.color = "green";
+} else if (currentTime < 18) {
+  greeting = "Good Afternoon";
+  customStyle.color = "blue";
+} else {
+  greeting = "Good Night";
   customStyle.color = "red";
 }
 
@@ -32,7 +42,7 @@ console.log(copyRightYear);
 
 ReactDOM.render(
   <div>
-    <h1 className="heading" style={customStyle}>
+    <h1 className="greeting-heading" style={customStyle}>
       {greeting} Visitor! Thanks for visiting my site.
     </h1>
     <h1 className="heading" contentEditable="true" spellCheck="false">
