@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 
 const dynamicImg = "https://picsum.photos/200";
 
+var greeting = "Good morning";
+
 const fName = "Christopher";
 const lName = "Baldoza";
 
@@ -12,14 +14,27 @@ const customStyle = {
   border: "1px solid black"
 };
 
-customStyle.color = "blue";
+const currentDate = new Date();
+const hours = currentDate.getHours();
+if (12 <= hours < 18) {
+  greeting = "Good Afternoon";
+  customStyle.color = "green";
+} else if (18 <= hours < 0) {
+  greeting = "Good Evening";
+  customStyle.color = "blue";
+} else if (0 <= hours <= 12) {
+  greeting = "Good Morning";
+  customStyle.color = "red";
+}
 
 const copyRightYear = new Date().getFullYear();
 console.log(copyRightYear);
 
 ReactDOM.render(
   <div>
-    <h1 style={customStyle}>Hello World!</h1>
+    <h1 className="heading" style={customStyle}>
+      {greeting} Visitor! Thanks for visiting my site.
+    </h1>
     <h1 className="heading" contentEditable="true" spellCheck="false">
       My Favourite Foods
     </h1>
